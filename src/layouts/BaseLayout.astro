@@ -21,7 +21,9 @@ const { title, description } = Astro.props;
 	</head>
 	<body>
 		<div class="stack backgrounds">
-			<!-- <Nav /> -->
+			<Nav />
+			<div class="cursor"></div>
+			<div class="outer"></div>
 			<slot />
 			<Footer />
 		</div>
@@ -113,5 +115,34 @@ const { title, description } = Astro.props;
 				}
 			}
 		</style>
+
+		<script>
+let cursor = document.querySelector('.cursor')
+let OuterCursor = document.querySelector('.outer')
+document.addEventListener('mousemove', mouseMove)
+
+function mouseMove(event){
+let x = event.clientX
+let y = event.clientY
+
+cursor.style.left= `${x}px`
+cursor.style.top= `${y}px`
+
+OuterCursor.style.left= `${x}px`
+OuterCursor.style.top= `${y}px`
+}
+
+let links = Array.from(document.querySelectorAll('a'))
+links.forEach( link => {
+	link.addEventListener('mouseover', ()=>{
+		cursor.classList.add('grow')
+	})
+
+	link.addEventListener('mouseleave', ()=>{
+		cursor.classList.remove('grow')
+	})
+})
+
+</script>
 	</body>
 </html>

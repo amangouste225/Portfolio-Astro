@@ -1,17 +1,19 @@
 /* Global variables */
 :root {
 	/* Colors */
-	--gray-0: #090b11;
-	--gray-50: #141925;
-	--gray-100: #283044;
-	--gray-200: #3d4663;
+	--gray-10: #000000;
+	--gray-20: #ffffff;
+	--black-0: rgba(0, 0, 0, 0.95);
+	--black-50: rgba(0, 0, 0, 0.9);
+	--black-100: rgba(0, 0, 0, 0.8);
+	--black-200: rgba(0, 0, 0, 0.7);
 	--gray-300: #505d84;
-	--gray-400: #6474a2;
-	--gray-500: #8490b5;
-	--gray-600: #a3acc8;
+	--black-400: #6474a2;
+	--black-500: #8490b5;
+	--black-500: #a3acc8;
 	--gray-700: #c3cadb;
 	--gray-800: #e3e6ee;
-	--gray-900: #f3f4f7;
+	--gray-900: #fff;
 	--gray-999-basis: 0, 0%, 100%;
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
 	--gray-999: #ffffff;
@@ -20,7 +22,7 @@
 	--accent-regular: #7611a6;
 	--accent-dark: #1c0056;
 	--accent-overlay: hsla(280, 89%, 67%, 0.33);
-	--accent-subtle-overlay: var(--accent-overlay);
+	--accent-subtle-overlay: var(--accent-light);
 	--accent-text-over: var(--gray-999);
 
 	--link-color: var(--accent-regular);
@@ -38,10 +40,9 @@
 			#ca7879,
 			var(--accent-regular),
 			var(--accent-dark));
-	--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
-
-	/* Shadows */
-	--shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
+	--gradient-stroke: var(--gray-900)
+		/* Shadows */
+		--shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
 		0px 2px 2px rgba(9, 11, 17, 0.02), 0px 0px 1px rgba(9, 11, 17, 0.03);
 	--shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03),
 		0px 7px 7px rgba(9, 11, 17, 0.05), 0px 2px 4px rgba(9, 11, 17, 0.06);
@@ -56,20 +57,38 @@
 	--text-xl: 1.625rem;
 	--text-2xl: 2.125rem;
 	--text-3xl: 2.625rem;
-	--text-4xl: 3.5rem;
+	--text-4xl: 3.625rem;
+	--text-6xl: 4.5rem;
 	--text-5xl: 4.5rem;
+	--text-6xl: 6rem;
 
 	/* Fonts */
-	--font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-body: 'Public Sans', var(--font-system);
-	--font-brand: Rubik, var(--font-system);
+
+	--font-system: 'Satoshi', sans-serif;
+	--font-body: var(--font-system);
+	--font-brand: var(--font-system);
 
 	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
+
+	.invert {
+		filter: invert(100);
+		margin: 0 10px;
+	}
+
+	.border {
+		border: 2px solid #000;
+	}
+
+	.stars img {
+		filter: invert(1);
+	}
 }
 
 :root.theme-dark {
+	--black-100: rgba(255, 255, 255, 0.8);
+	--gray-10: #ffffff;
+	--gray-20: #000000;
 	--gray-0: #ffffff;
 	--gray-50: #f3f4f7;
 	--gray-100: #e3e6ee;
@@ -107,6 +126,60 @@
 		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
 	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
 		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
+
+	.invert {
+		filter: invert(0);
+		margin: 0 10px;
+	}
+
+	.stars img {
+		filter: invert(100);
+	}
+
+	.border {
+		border: 2px solid #ffffff;
+	}
+}
+
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Black.Bold') format('woff');
+	font-weight: 900;
+	font-style: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Medium.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Regular.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Light.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
 html,
@@ -141,19 +214,15 @@ a {
 	color: var(--link-color);
 }
 
-.border {
-	border: 2px solid;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5 {
-	line-height: 1.1;
+	line-height: 1;
 	font-family: var(--font-brand);
 	font-weight: 600;
-	color: var(--gray-100);
+	color: var(--black-100);
 }
 
 h1 {
@@ -208,8 +277,6 @@ h5 {
 	align-items: center;
 	border: 2px solid;
 }
-
-
 
 .gap-2 {
 	gap: 0.5rem;
@@ -286,7 +353,7 @@ h5 {
 	pointer-events: none;
 	transform: translate(-50%, -50%);
 	transition: width 0.5s ease-in-out height 0.5s;
-	z-index: 9999;
+	z-index: 999999;
 	mix-blend-mode: difference;
 }
 

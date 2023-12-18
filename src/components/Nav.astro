@@ -8,110 +8,28 @@ const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
 	{ label: 'Work', href: '/work/' },
 	{ label: 'About', href: '/about/' },
+	{ label: 'Contact', href: '/Contact/' },
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
 	{ label: 'Twitter', href: 'https://twitter.com/me', icon: 'twitter-logo' },
-	{ label: 'Twitch', href: 'https://twitch.tv/me', icon: 'twitch-logo' },
 	{ label: 'GitHub', href: 'https://github.com/me', icon: 'github-logo' },
-	{ label: 'CodePen', href: 'https://codepen.io/me', icon: 'codepen-logo' },
-	{ label: 'dribbble', href: 'https://dribbble.com/me', icon: 'dribbble-logo' },
-	{ label: 'YouTube', href: 'https://www.youtube.com/@me/', icon: 'youtube-logo' },
+	{ label: 'LinkedIn', href: 'https://linkedin.com/me', icon: 'linkedin-logo' },
 ];
 ---
 
 <nav>
 	<div class="menu-header">
-		<a href="/" class="site-title">
+		<figure>
+			<a href="/" class="site-title">
 			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
-			 Jeanine White
-		</a>
-		<menu-button>
-			<template>
-				<button class="menu-button" aria-expanded="false">
-					<span class="sr-only">Menu</span>
-					<Icon icon="list" />
-				</button>
-			</template>
-		</menu-button>
-	</div>
-	<noscript>
-		<ul class="nav-items">
-			{
-				textLinks.map(({ label, href }) => (
-					<li>
-						<a
-							aria-current={Astro.url.pathname === href}
-							class:list={[
-								'link',
-								{
-									active:
-										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
-								},
-							]}
-							href={href}
-						>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</noscript>
-	<noscript>
-		<div class="menu-footer">
-			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-							<Icon icon={icon} />
-						</a>
-					))
-				}
-			</div>
-		</div>
-	</noscript>
-	<div id="menu-content" hidden>
-		<ul class="nav-items">
-			{
-				textLinks.map(({ label, href }) => (
-					<li>
-						<a
-							aria-current={Astro.url.pathname === href}
-							class:list={[
-								'link',
-								{
-									active:
-										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
-								},
-							]}
-							href={href}
-						>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-		<div class="menu-footer">
-			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-							<Icon icon={icon} />
-						</a>
-					))
-				}
-			</div>
-
-			<div class="theme-toggle">
+			Amangoua
+			</a>
+		</figure>
+		
+		<div class="toggle">
 				<ThemeToggle />
-			</div>
 		</div>
 	</div>
 </nav>
@@ -156,17 +74,20 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 <style>
 	nav {
 		z-index: 9999;
-		position: relative;
+		position: sticky;
+		top: 20;
 		font-family: var(--font-brand);
 		font-weight: 500;
 		margin-bottom: 3.5rem;
+		width: 100%;
 	}
-
+.toggle{
+}
 	.menu-header {
 		display: flex;
 		justify-content: space-between;
-		gap: 0.5rem;
 		padding: 1.5rem;
+		position: relative;
 	}
 
 	.site-title {
@@ -219,18 +140,18 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-		font-size: var(--text-md);
+		gap: 2rem;
+		font-size: var(--text-base);
 		line-height: 1.2;
 		list-style: none;
 		padding: 2rem;
-		background-color: var(--gray-999);
+		background-color: var(--gray-900);
 		border-bottom: 1px solid var(--gray-800);
 	}
 
 	.link {
 		display: inline-block;
-		color: var(--gray-300);
+		color: var(--gray-20);
 		text-decoration: none;
 	}
 
@@ -279,11 +200,13 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 
 	@media (min-width: 50em) {
 		nav {
-			display: grid;
-			grid-template-columns: 1fr auto 1fr;
+			display: block;
+			justify-content: space-between;
 			align-items: center;
-			padding: 2.5rem 5rem;
+			padding: 1rem 2rem;
 			gap: 1rem;
+			position: absolute;
+			top: 20px;
 		}
 
 		.menu-header {
@@ -301,11 +224,11 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		.nav-items {
 			position: relative;
 			flex-direction: row;
-			font-size: var(--text-sm);
+			font-size: var(--text-base);
 			border-radius: 999rem;
 			border: 0;
 			padding: 0.5rem 0.5625rem;
-			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+			background: (var(--gray-10));
 			box-shadow: var(--shadow-md);
 		}
 
@@ -313,7 +236,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			position: absolute;
 			inset: -1px;
 			content: '';
-			background: var(--gradient-stroke);
+			background: var(--gray-10);
 			border-radius: 999rem;
 			z-index: -1;
 		}
@@ -329,7 +252,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		.link:hover,
 		.link:focus {
 			color: var(--gray-100);
-			background-color: var(--accent-subtle-overlay);
+			background-color: var(--accent-regular);
 		}
 
 		.link.active {

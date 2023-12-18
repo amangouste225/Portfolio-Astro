@@ -26,11 +26,11 @@ const projects = (await getCollection('work'))
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero ">
+			<header class="hero">
 				<Hero
 					title="Hey"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
-					align="center"
+					tagline="I am"
+					name = "amangoua ange"
 				>
 				</Hero>
 			</header>
@@ -95,11 +95,10 @@ const projects = (await getCollection('work'))
 <style>
 	.hero {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		height: 100vh;
-		border: 5px solid yellow;
 	}
 	.roles {
 		display: none;
@@ -115,10 +114,10 @@ const projects = (await getCollection('work'))
 
 	@media (min-width: 50em) {
 		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1.75rem;
 		}
 
 		.roles {

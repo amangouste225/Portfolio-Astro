@@ -2,25 +2,31 @@
 interface Props {
 	title: string;
 	tagline?: string;
-	align?: 'start' | 'center';
+	name: string
 }
 
-const { align = 'center', tagline, title } = Astro.props;
+const {name, tagline, title } = Astro.props;
 import { Image } from 'astro:assets';
 import wave from '../../public/assets/wave.svg'
+import Freelance from './Freelance.astro';
 ---
 
-<div>
-	<h2>Hello ANge</h2>
-	
+<div class="w-11/12 flex justify-center items-center flex-col">
+	<h5 class="greetings"> {title}, <span class="hover:rotate-45"><Image class='invert'  src={wave} alt='wave'/> </span> {tagline}</h5>
+	<h1 class="title">{name} </h1>
+	<Freelance />
 </div>
 
 <style>
 	.hero {
-		font-size: var(--text-base);
 		text-align: center;
 		width: 100%;
-		border: 10px solid red;
+	}
+
+	.greetings{
+		display: flex;
+		align-items: center;
+		font-weight: 600;
 	}
 
 	.title,
@@ -30,17 +36,13 @@ import wave from '../../public/assets/wave.svg'
 	}
 
 	.title {
-		font-size: var(--text-base);
+		font-size: var(--text-5xl);
 		color: var(--gray-0);
 	}
 
 	@media (min-width: 50em) {
 		.hero {
-			font-size: var(--text-base);
-		}
-
-		.center {
-			text-align: center;
+			font-size: var(--text-2xl);
 		}
 
 		.start .title,
@@ -49,39 +51,19 @@ import wave from '../../public/assets/wave.svg'
 		}
 
 		.title {
-			font-size: var(--text-xl);
+			font-size: var(--text-3xl);
+			font-weight: 700;
+		}
+	
+	}
+
+	@media (min-width: 50em) {
+		.title {
+			font-size: var(--text-6xl);
+			font-weight: 700;
 		}
 	}
 </style>
 
 
-<script>
-
-let cursor = document.querySelector('.cursor')
-let OuterCursor = document.querySelector('.outer')
-document.addEventListener('mousemove', mouseMove)
-
-function mouseMove(event){
-let x = event.clientX
-let y = event.clientY
-
-cursor.style.left= `${x}px`
-cursor.style.top= `${y}px`
-
-OuterCursor.style.left= `${x}px`
-OuterCursor.style.top= `${y}px`
-}
-
-let links = Array.from(document.querySelectorAll('a'))
-links.forEach( link => {
-	link.addEventListener('mouseover', ()=>{
-		cursor.classList.add('grow')
-	})
-
-	link.addEventListener('mouseleave', ()=>{
-		cursor.classList.remove('grow')
-	})
-})
-
-</script>
 

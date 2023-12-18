@@ -1,16 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 import ContactCTA from '../components/ContactCTA.astro';
-import Hero from '../components/Hero.astro';
+import Header from '../components/Header.astro';
 ---
 
 <BaseLayout title="About | Jeanine White" description="About Jeanine White Lorem Ipsum">
 	<div class="stack gap-20">
+		
 		<main class="wrapper about">
-			<Hero
-				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			<Header
+				name="About Me"
+				para="Thanks for stopping by. Read below to learn more about myself and my background."
 			>
 				<img
 					width="1553"
@@ -18,13 +18,13 @@ import Hero from '../components/Hero.astro';
 					src="/assets/at-work.jpg"
 					alt="Jeanine White at work with a colleague"
 				/>
-			</Hero>
+			</Header>
 
 			<section>
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
+						Lorem ipsum dolor sit amet, makes people happy.
 						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl
 						condimentum id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu
 						odio ut sem nulla pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum
@@ -36,12 +36,7 @@ import Hero from '../components/Hero.astro';
 						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
 						quam elementum pulvinar etiam non.
 					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
-					</p>
+					
 				</div>
 			</section>
 			<section>
