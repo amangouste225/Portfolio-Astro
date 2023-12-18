@@ -6,20 +6,21 @@ interface Props {
 }
 
 const { align = 'center', tagline, title } = Astro.props;
+import { Image } from 'astro:assets';
+import wave from '../../public/assets/wave.svg'
 ---
 
-<div class:list={['hero stack gap-4', align]}>
-	<div class="stack gap-2">
-		<h1 class="title">{title}</h1>
-		{tagline && <p class="tagline">{tagline}</p>}
-	</div>
-	<slot />
+<div>
+	<h2>Hello ANge</h2>
+	
 </div>
 
 <style>
 	.hero {
-		font-size: var(--text-lg);
+		font-size: var(--text-base);
 		text-align: center;
+		width: 100%;
+		border: 10px solid red;
 	}
 
 	.title,
@@ -29,17 +30,17 @@ const { align = 'center', tagline, title } = Astro.props;
 	}
 
 	.title {
-		font-size: var(--text-3xl);
+		font-size: var(--text-base);
 		color: var(--gray-0);
 	}
 
 	@media (min-width: 50em) {
 		.hero {
-			font-size: var(--text-xl);
+			font-size: var(--text-base);
 		}
 
-		.start {
-			text-align: start;
+		.center {
+			text-align: center;
 		}
 
 		.start .title,
@@ -48,7 +49,39 @@ const { align = 'center', tagline, title } = Astro.props;
 		}
 
 		.title {
-			font-size: var(--text-5xl);
+			font-size: var(--text-xl);
 		}
 	}
 </style>
+
+
+<script>
+
+let cursor = document.querySelector('.cursor')
+let OuterCursor = document.querySelector('.outer')
+document.addEventListener('mousemove', mouseMove)
+
+function mouseMove(event){
+let x = event.clientX
+let y = event.clientY
+
+cursor.style.left= `${x}px`
+cursor.style.top= `${y}px`
+
+OuterCursor.style.left= `${x}px`
+OuterCursor.style.top= `${y}px`
+}
+
+let links = Array.from(document.querySelectorAll('a'))
+links.forEach( link => {
+	link.addEventListener('mouseover', ()=>{
+		cursor.classList.add('grow')
+	})
+
+	link.addEventListener('mouseleave', ()=>{
+		cursor.classList.remove('grow')
+	})
+})
+
+</script>
+
