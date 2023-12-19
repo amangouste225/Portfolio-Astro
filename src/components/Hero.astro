@@ -1,4 +1,7 @@
 ---
+import { motion } from "framer-motion"
+
+
 interface Props {
 	title: string;
 	tagline?: string;
@@ -9,9 +12,10 @@ const {name, tagline, title } = Astro.props;
 import { Image } from 'astro:assets';
 import wave from '../../public/assets/wave.svg'
 import Freelance from './Freelance.astro';
+
 ---
 
-<div class="w-11/12 flex justify-center items-center flex-col">
+<div   class="w-11/12 flex justify-center items-center flex-col">
 	<h5 class="greetings"> {title}, <span class="hover:rotate-45"><Image class='invert'  src={wave} alt='wave'/> </span> {tagline}</h5>
 	<h1 class="title">{name} </h1>
 	<Freelance />
