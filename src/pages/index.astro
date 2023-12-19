@@ -1,7 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Component Imports
@@ -23,15 +21,16 @@ const projects = (await getCollection('work'))
 	
 ---
 
-<BaseLayout title="Home | Amangoua Kacou Ange"
-	description="Learn about Jeanine White's most recent projects">
+<BaseLayout title="Home | Amangoua Kacou Ange-Thierry"
+	description="Learn about Amangoua Kacou ANge-Thierry's recent projects">
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
 					title="Hey"
-					tagline="I am"
+					tagline="my name is"
 					name = "amangoua ange"
+					visible='visible'
 				>
 				</Hero>
 			</header>
@@ -41,8 +40,7 @@ const projects = (await getCollection('work'))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<h3 class="works">Selected Work</h3>
 				</header>
 
 				<div class="gallery">
@@ -59,8 +57,8 @@ const projects = (await getCollection('work'))
 
 				<div class="cta">
 					<CallToAction href="/work/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
+						view all projects
+						<Icon icon='arrow-right' color='#000' />
 					</CallToAction>
 				</div>
 			</section>
@@ -98,7 +96,7 @@ const projects = (await getCollection('work'))
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: 100vh;
+		height: 40vh;
 	}
 	.roles {
 		display: none;
@@ -118,6 +116,7 @@ const projects = (await getCollection('work'))
 			align-items: center;
 			justify-content: center;
 			gap: 1.75rem;
+			height: 100vh;
 		}
 
 		.roles {
@@ -131,6 +130,7 @@ const projects = (await getCollection('work'))
 			border-radius: 4.5rem;
 			object-fit: cover;
 		}
+
 	}
 
 	/* ====================================================== */
@@ -177,7 +177,8 @@ const projects = (await getCollection('work'))
 	}
 
 	.section-header h3 {
-		font-size: var(--text-2xl);
+		font-size: var(--text-3xl);
+		font-weight: 600;
 	}
 
 	@media (min-width: 50em) {
@@ -208,10 +209,6 @@ const projects = (await getCollection('work'))
 		.gallery {
 			grid-area: gallery;
 		}
-
-		.cta {
-			grid-area: cta;
-		}
 	}
 
 	/* ====================================================== */
@@ -234,5 +231,26 @@ const projects = (await getCollection('work'))
 			border-radius: 1.5rem;
 			height: 9.5rem;
 		}
+
+		.pink{
+			background-color: var(--accent-regular);
+			width: 2em;
+			height: 2em ;
+			border-radius: 2em;
+			position: absolute;
+			left: 20px;
+			z-index:-1;
+		}
 	}
 </style>
+<script>
+const work = new SplitType('.works')
+
+const Tl = gsap.timeline({
+	scrollTrigger : {
+		trigger: '.works .char'
+	}
+})
+Tl.from('.works .char', {opacity: 0, yPercent: 100, stagger: 0.05, ease: "back.inOut"})
+
+</script>

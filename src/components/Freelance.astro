@@ -5,26 +5,22 @@ import stars from '../../public/assets/stars.svg'
 ---
 <div class="mt-10 freelance">
     <div class="flex gap-3 justify-center items-center">
-        <span class="border px-3 lg:px-10 flex items-center justify-center rounded-full duration-200 ease-in hover:rounded-none ">freelance</span>
+        <span class="border px-3 lg:px-10 flex items-center justify-center rounded-full hover:rounded-[10px]">freelance</span>
     <span class="flex stars gap-2 group">
         <Image src={stars} alt="stars" class='group-hover:animate-spin group-hover:italic' />
-        digital designer 
+        ui/ux designer 
         <Image src={stars} alt="stars" class='group-hover:animate-spin'/>
     
     </span>
 
     </div>
     <div>
-        and <span class="hover:line-through w-7/12"> {frontend}</span> developer
+        and <span class="hover:line-through w-7/12 font-black"> {frontend}</span> developer
     </div>
 </div>
 
 
 <style>
-.stars img {
-        filter: invert(1);
- }
-
 .freelance{
     font-size: var(--text-md);
     font-weight:600;
@@ -39,5 +35,9 @@ import stars from '../../public/assets/stars.svg'
 		.freelance {
 			font-size: var(--text-2xl);
 		}
+
+        .border{
+            animation: all ease-in-out 100ms;
+        }
     }
 </style>

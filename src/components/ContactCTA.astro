@@ -3,21 +3,27 @@ import CallToAction from './CallToAction.astro';
 import Icon from './Icon.astro';
 ---
 
-<aside>
-	<h2>Interested in working with me?</h2>
+<footer class="flex justify-between items-center">
+	<aside>
+	<h2 class="mb-5">project in mind?</h2>
 	<CallToAction href="mailto:me@example.com">
 		get in touch
 	</CallToAction>
 </aside>
+<div>
+<p class="copyright">Designed with love by <a href="#">Amangoua Ange </a></p>
+</div>
+</footer>
 
 <style>
 	aside {
 		display: block;
-		border-top: 1px solid var(--gray-800);
-		border-bottom: 1px solid var(--gray-800);
-		padding: 5rem 1.5rem;
+	}
+
+	footer{
 		background-color: var(--gray-999_40);
 		box-shadow: var(--shadow-sm);
+		padding: 5rem 1.5rem;
 	}
 
 	h2 {
@@ -27,7 +33,7 @@ import Icon from './Icon.astro';
 	}
 
 	@media (min-width: 50em) {
-		aside {
+		footer {
 			padding: 7.5rem;
 			flex-direction: row;
 			flex-wrap: wrap;
@@ -37,6 +43,11 @@ import Icon from './Icon.astro';
 		h2 {
 			font-size: var(--text-3xl);
 			text-align: left;
+		}
+
+		.copyright{
+			font-weight: 500;
+
 		}
 	}
 </style>

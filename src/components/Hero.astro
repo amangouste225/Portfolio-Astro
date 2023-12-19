@@ -1,23 +1,20 @@
 ---
-import { motion } from "framer-motion"
-
-
 interface Props {
 	title: string;
 	tagline?: string;
-	name: string
+	name: string,
+	visible : 'visible' | null
 }
 
 const {name, tagline, title } = Astro.props;
 import { Image } from 'astro:assets';
 import wave from '../../public/assets/wave.svg'
 import Freelance from './Freelance.astro';
-
 ---
 
-<div   class="w-11/12 flex justify-center items-center flex-col">
+<div class="w-full flex justify-center items-center flex-col heading">
 	<h5 class="greetings"> {title}, <span class="hover:rotate-45"><Image class='invert'  src={wave} alt='wave'/> </span> {tagline}</h5>
-	<h1 class="title">{name} </h1>
+	<h1 class="headingName">{name} </h1>
 	<Freelance />
 </div>
 
@@ -26,6 +23,11 @@ import Freelance from './Freelance.astro';
 		text-align: center;
 		width: 100%;
 	}
+
+	div.word{
+			font-style: italic !important;
+			text-decoration: underline;
+		}
 
 	.greetings{
 		display: flex;
@@ -39,8 +41,9 @@ import Freelance from './Freelance.astro';
 		margin-inline: auto;
 	}
 
-	.title {
-		font-size: var(--text-5xl);
+	
+	.headingName {
+		font-size: var(--text-3xl);
 		color: var(--gray-0);
 	}
 
@@ -49,25 +52,50 @@ import Freelance from './Freelance.astro';
 			font-size: var(--text-2xl);
 		}
 
+		.char h1{
+			clip-path:(0 0, 100% 0, 100% 100% , 0% 100%) ;
+			line-height: 5rem;
+		}
+		.char{
+		transform:  translateY(115px);
+		transition:  transform .5s;
+	}
 		.start .title,
 		.start .tagline {
 			margin-inline: unset;
 		}
 
-		.title {
-			font-size: var(--text-3xl);
+		.headingName {
+			font-size: var(--text-6xl);
 			font-weight: 700;
 		}
 	
 	}
 
-	@media (min-width: 50em) {
-		.title {
+	@media (min-width: 40em){
+		.headingName {
 			font-size: var(--text-6xl);
 			font-weight: 700;
 		}
 	}
+
 </style>
 
+<script>
 
+const text = new SplitType('.headingName', { types: 'words, chars' })
+
+let char = Array.from(document.querySelectorAll('.headingName .char'))
+char.forEach( char => {
+	char.addEventListener('mouseover', ()=>{
+		char.classList.add('bounce')
+	})
+})
+
+gsap.from('.greetings, .title, .freelance',1, { opacity: 0, y: 120, stagger:0.5, ease:'back.out'})
+gsap.registerPlugin(ScrollTrigger)
+const gTl = gsap.timeline()
+gTl.from('.headingName .char',1, {opacity: 0, yPercent: 100, stagger: 0.05, ease: "back.inOut"})
+
+</script>
 
