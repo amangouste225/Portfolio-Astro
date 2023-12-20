@@ -32,13 +32,11 @@ const { Content } = await entry.render();
 		<div class="stack gap-15">
 			<header>
 				<div class="wrapper stack gap-2" >
-					<a class="back-link" href="/work/"><Icon icon="arrow-left" /> Work</a>
 					<Header name={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
 						</div>
 					</Header>
 				</div>
@@ -86,7 +84,7 @@ const { Content } = await entry.render();
 	}
 
 	.content {
-		max-width: 75ch;
+		max-width: 100ch;
 		margin-inline: auto;
 	}
 
@@ -107,6 +105,8 @@ const { Content } = await entry.render();
 		box-shadow: var(--shadow-sm);
 		background: var(--gradient-subtle);
 		border: 1px solid var(--gray-800);
+		max-width: 500px;
+		margin: 0 auto;
 	}
 
 	.content :global(blockquote) {

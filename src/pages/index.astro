@@ -51,11 +51,11 @@ const projects = (await getCollection('work'))
 							))
 						}
 					</Grid>
-						<div class="flex justify-center mt-10 pt-10">
-							<CallToAction href="/work/">
-							view all projects
-							</CallToAction>
-						</div>
+					<div class="flex justify-center mt-10 pt-10 call">
+						<CallToAction href="/work/">
+						view all projects
+						</CallToAction>
+					</div>
 				</div>
 			</section> 
 		</main>
@@ -105,7 +105,6 @@ const projects = (await getCollection('work'))
 		}
 
 	}
-
 	/* ====================================================== */
 
 	.section {
@@ -224,5 +223,7 @@ const Tl = gsap.timeline({
 		trigger: '.works .char'
 	}
 })
-Tl.from('.works .char, .gallery li', {opacity: 0, yPercent: 250, stagger: 0.01, ease: "power2.inOut"})
+Tl.from('.works .char', {opacity: 0, yPercent: 250, stagger: 0.01, ease: "power2.inOut"})
+Tl.from('.gallery li', {opacity: 0, duration:1.2, yPercent: 150, stagger: 0.09, ease: "back.inOut"})
+Tl.from('.call', {opacity: 0, duration:1.2, yPercent: 150, stagger: 0.05, ease: "power.inOut"})
 </script>

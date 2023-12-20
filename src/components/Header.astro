@@ -2,14 +2,14 @@
 
 interface Props {
 	name : string;
-    para : string;
+    para?: string;
+	align ?: 'start' | undefined
 }
 
 const {name, para } = Astro.props;
 ---
 
 <div class="flex flex-col items-center gap-3 justify-center my-20">
-	<h1 class="greetings"> {name}</h1>
-	<p class="title">{para} </p>
+	<h2> {name}</h2>
 	<slot />
 </div>
