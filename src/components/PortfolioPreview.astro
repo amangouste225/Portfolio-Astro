@@ -8,11 +8,9 @@ interface Props {
 const { data, slug } = Astro.props.project;
 ---
 
-<a class="card" transition:name="portfolio" data-cursor-text="view project" href={`/work/${slug}`}>
+<a class="card" transition:name={`/work-${slug}`} data-cursor-text="view project" href={`/work/${slug}`}>
 	<span class="card-title">{data.title}</span>
-	<span class="tags"> {data.name}</span>
-	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
-	
+	<img src={data.img} alt={data.img_alt || 'Z'} loading="lazy" decoding="async" />
 </a>
 
 <style>
