@@ -1,0 +1,43 @@
+<div class="line-1">
+    <div class="marquee">
+<span>Software Engineering</span>
+<span>Problem Solving</span>
+<span>Software Engineering</span>
+<span>Problem Solving</span>
+<span>Software Engineering</span>
+<span>Problem Solving</span>
+    </div>
+</div>
+
+
+<style>
+.line-1{
+width: 100%;
+position: relative;
+}
+
+.marquee {
+display: flex;
+gap: 1rem;
+left : -800px; 
+white-space: nowrap;
+position: absolute;
+
+}
+.marquee span{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+</style>
+
+
+<script>
+let marquee = document.querySelector('.marquee')
+
+window.onscroll = ()=>{
+        let pos = window.scrollY - 800;
+        marquee.style.left = `${pos}px`;
+}
+</script>
+

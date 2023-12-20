@@ -18,10 +18,14 @@ const { href } = Astro.props;
 		text-decoration: none;
 		line-height: 1;
 		gap: 1rem;
+		padding: 1rem 1.5rem;
 		overflow: hidden;
 		white-space: nowrap;
-		border:  2px solid;
+		border:  none;
 		border-radius: 50px;
+		max-width: 220px;
+		outline: 2px solid;
+		margin: 1em 0;
 	}
 
 	@media (min-width: 20em) {
@@ -33,17 +37,17 @@ const { href } = Astro.props;
 
 	a:focus,
 	a:hover {
-		background-color: var(--accent-regular);
+		background-color: var(--black-0);
 		border: none;
-		color: var(--black-0);
+		color: var(--gray-999);
 	}
 
 	@media (min-width: 50em) {
 		a {
-			padding: 1rem 0.5rem;
+			padding: 1rem 2rem;
 			font-size: var(--text-md);
 			font-weight: 600;
-			max-width: 200px;
+			max-width: 230px;
 		}
 	}
 </style>

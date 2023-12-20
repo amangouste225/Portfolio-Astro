@@ -1,6 +1,7 @@
 /* Global variables */
 :root {
 	/* Colors */
+	--accent: #a831df;
 	--gray-10: #000000;
 	--gray-20: #ffffff;
 	--black-0: rgba(0, 0, 0, 0.95);
@@ -17,6 +18,7 @@
 	--gray-999-basis: 0, 0%, 100%;
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
 	--gray-999: #ffffff;
+	--white: #ffffff;
 
 	--accent-light: #c561f6;
 	--accent-regular: #7611a6;
@@ -86,6 +88,8 @@
 }
 
 :root.theme-dark {
+	--accent: #fff;
+	--white: #ffffff;
 	--black-0: rgba(255, 255, 255, 0.95);
 	--black-100: rgba(255, 255, 255, 0.8);
 	--gray-10: #ffffff;
@@ -251,19 +255,19 @@ h5 {
 }
 
 h1 {
-	font-size: var(--text-5xl);
-}
-
-h2 {
 	font-size: var(--text-4xl);
 }
 
-h3 {
+h2 {
 	font-size: var(--text-3xl);
 }
 
-h4 {
+h3 {
 	font-size: var(--text-2xl);
+}
+
+h4 {
+	font-size: var(--text-xl);
 }
 
 h5 {
@@ -332,7 +336,7 @@ h5 {
 }
 
 .gap-48 {
-	gap: 12rem;
+	gap: 10rem;
 }
 
 @media (min-width: 50em) {
@@ -365,7 +369,7 @@ h5 {
 	}
 
 	.lg\:gap-48 {
-		gap: 12rem;
+		gap: 8rem;
 	}
 }
 

@@ -6,10 +6,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/CallToAction.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Flex from '../components/Flex.astro'
+
 
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro';
@@ -25,7 +23,7 @@ const projects = (await getCollection('work'))
 <BaseLayout title="Home | Amangoua Kacou Ange-Thierry"
 	description="Learn about Amangoua Kacou ANge-Thierry's recent projects">
 	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
+		<div class="wrapper stack gap-8 lg:gap-10">
 			<header class="hero">
 				<Hero
 					title="Hey"
@@ -35,15 +33,14 @@ const projects = (await getCollection('work'))
 				>
 				</Hero>
 			</header>
-			<!-- <Skills /> -->
+			<Skills />
 		</div>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
+		<main class="wrapper stack gap-10 lg:gap-20">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3 class="works">Selected Work</h3>
 				</header>
-
 				<div class="gallery">
 					<Grid variant="offset">
 						{
@@ -54,54 +51,19 @@ const projects = (await getCollection('work'))
 							))
 						}
 					</Grid>
+						<div class="flex justify-center mt-10 pt-10">
+							<CallToAction href="/work/">
+							view all projects
+							</CallToAction>
+						</div>
 				</div>
-
-				<div class="cta">
-					<CallToAction href="/work/">
-						view all projects
-						<Icon icon='arrow-right' color='#000' />
-					</CallToAction>
-				</div>
-			</section>
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-				</header>
-
-				<div class="splide">
-					<div class="splide__track  w-full ">
-					<Flex>
-						<ul class="splide__list">
-							<li class="splide__slide">Slide 01</li>
-							<li class="splide__slide">Slide 02</li>
-							<li class="splide__slide">Slide 03</li>
-						</ul>
-					</Flex>
-				</div>
-				</div>
-			</section>
+			</section> 
 		</main>
-
 		<ContactCTA />
 	</div>
 </BaseLayout>
 
 <style>
-	.splide {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.splide .splide__track ul li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 6.4rem;
-  text-transform: uppercase;
-}
-
-
 	.hero {
 		display: flex;
 		flex-direction: column;
@@ -127,7 +89,7 @@ const projects = (await getCollection('work'))
 			align-items: center;
 			justify-content: center;
 			gap: 1.75rem;
-			height: 100vh;
+			height: 80vh;
 		}
 
 		.roles {
@@ -196,7 +158,7 @@ const projects = (await getCollection('work'))
 		.section {
 			grid-template-columns: repeat(4, 1fr);
 			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
+			gap: 3.5remrem;
 		}
 
 		.section.with-cta {
@@ -263,26 +225,4 @@ const Tl = gsap.timeline({
 	}
 })
 Tl.from('.works .char, .gallery li', {opacity: 0, yPercent: 250, stagger: 0.01, ease: "power2.inOut"})
-
-const carouselElements = document.querySelectorAll(".splide");
-
-  // Iterate through each carousel element
-  carouselElements.forEach((carouselElement) => {
-    const splide = new Splide(carouselElements, {
-      type: "loop",
-      drag: true,
-      autoWidth: true,
-      gap: 30,
-      pagination: false,
-      arrows: false,
-      autoScroll: {
-        speed: 1,
-        pauseOnHover: true,
-      },
-    });
-
-    // Mount the Splide instance
-    splide.mount(window.splide.Extensions);
-  });
-
 </script>

@@ -6,13 +6,13 @@ interface Props {
 }
 
 const { data, slug } = Astro.props.project;
-
-import MouseFollower from "mouse-follower";
 ---
 
-<a class="card" transition:name="portfolio" data-cursor-img="/assets/arrow-up.svg" href={`/work/${slug}`}>
+<a class="card" transition:name="portfolio" data-cursor-text="view project" href={`/work/${slug}`}>
 	<span class="card-title">{data.title}</span>
+	<span class="tags"> {data.name}</span>
 	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+	
 </a>
 
 <style>
@@ -27,20 +27,38 @@ import MouseFollower from "mouse-follower";
 		box-shadow: var(--shadow-sm);
 		text-decoration: none;
 		font-family: var(--font-brand);
-		font-size: var(--text-lg);
-		font-weight: 500;
+		font-size: var(--text-md);
+		font-weight: 600;
 		transition: box-shadow var(--theme-transition);
+		position: relative;
 	}
 
 	.card:hover .card-title{
 		transform: translateY(0px);
 	}
+
+	.card:hover .tags{
+		transform: translateY(0px);
+	}
 	.card:hover img{
-		filter: brightness(50%);
+		filter: brightness(20%);
 	}
 
 	.card:hover {
 		box-shadow: var(--shadow-md);
+	}
+	.tags{
+		position: absolute;
+		margin: 2rem;
+		transform: translateY(-70px);
+		will-change: transform;
+ 		transition: transform cubic-bezier(.46,.43,.1,.99) 0.5s;
+		bottom: 0;
+		font-weight: 800;
+		color: var(--accent);
+		transform: translateY(60px);
+		z-index: 99;
+		font-size: var(--text-xl);
 	}
 
 	.card-title {
@@ -50,7 +68,7 @@ import MouseFollower from "mouse-follower";
 		padding: 0.5rem 1rem;
 		background: var(--gray-999);
 		color: var(--gray-200);
-		border-radius: 2rem;
+		border-radius: 1rem;
 		transform: translateY(-70px);
 		will-change: transform;
  		transition: transform cubic-bezier(.46,.43,.1,.99) 0.5s
@@ -77,6 +95,6 @@ import MouseFollower from "mouse-follower";
 
 
 <script>
-var cursor = new MouseFollower()
+ var cursor = new MouseFollower()
 
 </script>

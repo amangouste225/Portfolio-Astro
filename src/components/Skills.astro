@@ -2,29 +2,28 @@
 import Icon from './Icon.astro';
 ---
 
-<section class="box skills">
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Full Stack</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+<section class="skills">
+	<div class="box stack gap-2 lg:gap-4 relative">
+		<Icon icon="pencil-line" color="var(--accent-regular)" size="2rem" gradient />
+		<h5>UI Design</h5>
+		<p>I create innovative designs for a wide range of digital platforms, including apps, websites, and other digital products in Figma.</p>
 	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Industry Leader</h2>
-		<p>Neque viverra justo nec ultrices dui. Est ultricies integer quis auctor elit.</p>
+	<div class="box stack gap-2 lg:gap-4">
+		<Icon icon="code" color="var(--accent-regular)" size="2rem" gradient />
+		<h5>Frontend</h5>
+		<p>With my background as a graphic designer, I can create logos, printed matters and enhance branding elements..</p>
 	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Strategy-Minded</h2>
-		<p>Urna porttitor rhoncus dolor purus non enim praesent ornare.</p>
+	<div class="box stack gap-2 lg:gap-4">
+		<Icon icon="strategy" color="var(--accent-regular)" size="2rem" gradient />
+		<h5>Framer Motion</h5>
+		<p>I craft websites using GSAP or Framer Motion and transfer full ownership to your organization upon completion..</p>
 	</div>
 </section>
 
 <style>
 	.box {
-		border: 1px solid var(--gray-800);
+		border: 2px solid var(--gray-800);
 		border-radius: 0.75rem;
-		padding: 1.5rem;
 		background-color: var(--gray-999_40);
 		box-shadow: var(--shadow-sm);
 	}
@@ -32,7 +31,7 @@ import Icon from './Icon.astro';
 	.skills {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		gap: 1rem;
 	}
 
 	.skills h2 {
@@ -52,7 +51,7 @@ import Icon from './Icon.astro';
 		.skills {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
+			gap: 2rem;
 		}
 
 		.skills h2 {
