@@ -1,0 +1,15 @@
+<svg id="arrow-left" xmlns="http://www.w3.org/2000/svg" width="955.9" height="1012.6" viewBox="0 0 955.9 1012.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 30px;
+      }
+    </style>
+  </defs>
+  <rect width="955.9" height="1012.6"/>
+  <path class="cls-1" d="M233.3,566.7,566.7,233.3m0,0h-300m300,0v300" transform="translate(46.6 81)"/>
+</svg>

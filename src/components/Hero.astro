@@ -92,10 +92,10 @@ char.forEach( char => {
 	})
 })
 
-gsap.from('.greetings, .title, .freelance',1, { opacity: 0, y: 120, stagger:0.5, ease:'back.out'})
+gsap.from('.greetings, .title, .freelance',1, { opacity: 0, y: 100, stagger:0.5, ease:'power2.inOut'})
 gsap.registerPlugin(ScrollTrigger)
 const gTl = gsap.timeline()
-gTl.from('.headingName .char',1, {opacity: 0, yPercent: 100, stagger: 0.05, ease: "back.inOut"})
+gTl.from('.headingName .char',1, {opacity: 0, yPercent: 400, stagger: 0.01, ease: "back.inOut"})
 
 </script>
 

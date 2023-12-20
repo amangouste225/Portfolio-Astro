@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 
+
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
@@ -21,6 +22,9 @@ const {
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+
 <script is:inline>
 	// This code is inlined in the head to make dark mode instant & blocking.
 	const getThemePreference = () => {
@@ -40,6 +44,14 @@ const {
 		});
 		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 	}
+
+
+
+
+// CUSTOM CURSOR
+
+
+
 </script>    
 
 
@@ -49,4 +61,7 @@ const {
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
 <script is:inline src="https://unpkg.com/split-type"></script>
+<script is:inline src="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
 

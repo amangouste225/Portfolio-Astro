@@ -6,9 +6,11 @@ interface Props {
 }
 
 const { data, slug } = Astro.props.project;
+
+import MouseFollower from "mouse-follower";
 ---
 
-<a class="card" href={`/work/${slug}`}>
+<a class="card" transition:name="portfolio" data-cursor-img="/assets/arrow-up.svg" href={`/work/${slug}`}>
 	<span class="card-title">{data.title}</span>
 	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
 </a>
@@ -32,6 +34,9 @@ const { data, slug } = Astro.props.project;
 
 	.card:hover .card-title{
 		transform: translateY(0px);
+	}
+	.card:hover img{
+		filter: brightness(50%);
 	}
 
 	.card:hover {
@@ -69,3 +74,9 @@ const { data, slug } = Astro.props.project;
 		}
 	}
 </style>
+
+
+<script>
+var cursor = new MouseFollower()
+
+</script>
