@@ -2,8 +2,6 @@
 npm create astro@latest -- --Portfolio-Astro
 ```
 
-![portfolio](https://)
-
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
