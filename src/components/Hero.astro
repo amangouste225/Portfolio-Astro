@@ -12,7 +12,7 @@ import wave from '../../public/assets/wave.svg'
 import Freelance from './Freelance.astro';
 ---
 
-<div class="w-full flex justify-center items-center flex-col heading">
+<div class="w-full flex justify-center items-center flex-col heading" id="contain">
 	<h5 class="greetings"> {title}, <span class="hover:rotate-45"><Image class='invert'  src={wave} alt='wave'/> </span> {tagline}</h5>
 	<h1 class="headingName">{name} </h1>
 	<Freelance />
@@ -25,14 +25,14 @@ import Freelance from './Freelance.astro';
 	}
 
 	div.word{
-			font-style: italic !important;
-			text-decoration: underline;
+		font-style: italic !important;
+		text-decoration: underline;
 		}
 
 	.greetings{
 		display: flex;
 		align-items: center;
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	.title,
@@ -41,7 +41,6 @@ import Freelance from './Freelance.astro';
 		margin-inline: auto;
 	}
 
-	
 	.headingName {
 		font-size: var(--text-3xl);
 		color: var(--gray-0);
@@ -49,12 +48,12 @@ import Freelance from './Freelance.astro';
 
 	@media (min-width: 50em) {
 		.hero {
-			font-size: var(--text-2xl);
+		font-size: var(--text-2xl);
 		}
 
 		.char h1{
-			clip-path:(0 0, 100% 0, 100% 100% , 0% 100%) ;
-			line-height: 5rem;
+		clip-path:(0 0, 100% 0, 100% 100% , 0% 100%) ;
+		line-height: 5rem;
 		}
 		.char{
 		transform:  translateY(115px);
@@ -62,20 +61,20 @@ import Freelance from './Freelance.astro';
 	}
 		.start .title,
 		.start .tagline {
-			margin-inline: unset;
+		margin-inline: unset;
 		}
 
 		.headingName {
-			font-size: var(--text-6xl);
-			font-weight: 700;
+		font-size: var(--text-6xl);
+		font-weight: 700;
 		}
 	
 	}
 
 	@media (min-width: 40em){
 		.headingName {
-			font-size: var(--text-6xl);
-			font-weight: 600;
+		font-size: var(--text-6xl);
+		font-weight: 600;
 		}
 	}
 
@@ -92,10 +91,6 @@ char.forEach( char => {
 	})
 })
 
-gsap.from('.greetings, .title, .freelance',1, { opacity: 0, y: 100, stagger:0.5, ease:'power2.inOut'})
-gsap.registerPlugin(ScrollTrigger)
-const gTl = gsap.timeline()
-gTl.from('.headingName .char',1, {opacity: 0, yPercent: 400, stagger: 0.01, ease: "back.inOut"})
-
+gsap.timeline({defaults:{ ease : 'back', opacity: 0, duration: 0.4}}).from('#contain',{ease:'linear'}).from('.greetings', {y: 100 }).from('.headingName', { y:100}).from('.first', {y:100}).from('.second',{y:100})
 </script>
 

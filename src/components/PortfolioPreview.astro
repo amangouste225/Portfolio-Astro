@@ -20,7 +20,7 @@ const { data, slug } = Astro.props.project;
 		height: 11rem;
 		background: var(--gradient-subtle);
 		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
+		border-radius: 0.5rem;
 		overflow: hidden;
 		box-shadow: var(--shadow-sm);
 		text-decoration: none;
@@ -63,10 +63,10 @@ const { data, slug } = Astro.props.project;
 		grid-area: 1 / 1 / 2 / 2;
 		z-index: 1;
 		margin: 0.5rem;
-		padding: 0.5rem 1rem;
+		padding: 0.2rem 1rem;
 		background: var(--gray-999);
 		color: var(--gray-200);
-		border-radius: 1rem;
+		border-radius: 0.5rem;
 		transform: translateY(-70px);
 		will-change: transform;
  		transition: transform cubic-bezier(.46,.43,.1,.99) 0.5s
@@ -82,9 +82,8 @@ const { data, slug } = Astro.props.project;
 	@media (min-width: 50em) {
 		.card {
 			height: 22rem;
-			border-radius: 1.5rem;
+			border-radius: 0.7rem;
 		}
-
 		.title {
 			border-radius: 0.9375rem;
 		}

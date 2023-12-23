@@ -15,6 +15,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.0.6",
+    "locomotive-scroll": "^4.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "splitting": "^1.0.6",

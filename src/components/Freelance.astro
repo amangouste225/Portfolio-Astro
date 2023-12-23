@@ -4,17 +4,15 @@ import { Image } from "astro:assets";
 import stars from '../../public/assets/stars.svg'
 ---
 <div class="mt-10 freelance">
-    <div class="flex gap-3 justify-center items-center">
+    <div class="flex gap-3 justify-center items-center first">
         <span class="border transition delay-150 duration-700 ease-in-out px-3 lg:px-10 flex items-center hover:focus-visible: justify-center rounded-full hover:rounded-md hover:duration-700">freelance</span>
-    <span class="flex stars gap-2 group">
+    <span class="flex stars gap-2 group font-black">
         <Image src={stars} alt="stars" class='group-hover:animate-spin group-hover:italic' />
         ui/ux designer 
         <Image src={stars} alt="stars" class='group-hover:animate-spin'/>
-    
     </span>
-
     </div>
-    <div>
+    <div class="second">
         and <span class="w-7/12 font-black"> {frontend}</span> developer
     </div>
 </div>

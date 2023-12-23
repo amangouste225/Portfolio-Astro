@@ -146,7 +146,6 @@
 	}
 }
 
-
 @font-face {
 	font-family: 'Satoshi';
 	src: url('/fonts/Satoshi-Black.woff') format('woff');
@@ -396,6 +395,11 @@ h5 {
 }
 
 /* HOME STYLING */
-div.char:nth-child(6) {
+div.char:nth-child(1) {
 	font-style: italic !important;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
 }
