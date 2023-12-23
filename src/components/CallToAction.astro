@@ -21,16 +21,14 @@ const { href } = Astro.props;
 		padding: 1rem 1.5rem;
 		overflow: hidden;
 		white-space: nowrap;
-		border:  none;
-		border-radius: 50px;
-		max-width: 220px;
+		padding: 0.5rem 1rem;
 		outline: 2px solid;
-		margin: 1em 0;
+		border-radius: 30px;
 	}
 
 	@media (min-width: 20em) {
 		a {
-			font-size: var(--text-md);
+			font-size: var(--text-sm);
 		}
 	}
 
@@ -48,6 +46,11 @@ const { href } = Astro.props;
 			font-size: var(--text-md);
 			font-weight: 600;
 			max-width: 230px;
+			border:  none;
+			border-radius: 30px;
+			max-width: 220px;
+			outline: 2px solid;
+			margin: 1em 0;
 		}
 	}
 </style>

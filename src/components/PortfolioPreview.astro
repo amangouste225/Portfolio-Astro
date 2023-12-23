@@ -8,7 +8,7 @@ interface Props {
 const { data, slug } = Astro.props.project;
 ---
 
-<a class="card" transition:name={`/work-${slug}`} data-cursor-text="view project" href={`/work/${slug}`}>
+<a class="card" transition:name={`/work-${slug}`} data-cursor-text="view project" href={`/work/${slug}`}  data-scroll data-scroll-speed="1">
 	<span class="card-title">{data.title}</span>
 	<img src={data.img} alt={data.img_alt || 'Z'} loading="lazy" decoding="async" />
 </a>
@@ -17,7 +17,7 @@ const { data, slug } = Astro.props.project;
 	.card {
 		display: grid;
 		grid-template: auto 1fr / auto 1fr;
-		height: 11rem;
+		height: 16rem;
 		background: var(--gradient-subtle);
 		border: 1px solid var(--gray-800);
 		border-radius: 0.5rem;
@@ -25,10 +25,10 @@ const { data, slug } = Astro.props.project;
 		box-shadow: var(--shadow-sm);
 		text-decoration: none;
 		font-family: var(--font-brand);
-		font-size: var(--text-md);
-		font-weight: 600;
+		font-weight: 500;
 		transition: box-shadow var(--theme-transition);
 		position: relative;
+		
 	}
 
 	.card:hover .card-title{
@@ -69,7 +69,8 @@ const { data, slug } = Astro.props.project;
 		border-radius: 0.5rem;
 		transform: translateY(-70px);
 		will-change: transform;
- 		transition: transform cubic-bezier(.46,.43,.1,.99) 0.5s
+ 		transition: transform cubic-bezier(.46,.43,.1,.99) 0.5s;
+		font-size: var(--text-sm);
 	}
 
 	img {
@@ -87,11 +88,33 @@ const { data, slug } = Astro.props.project;
 		.title {
 			border-radius: 0.9375rem;
 		}
+
+		.card-title{
+			font-size: var(--text-md);
+		}
 	}
 </style>
 
-
 <script>
- var cursor = new MouseFollower()
+
+
+const card= document.querySelectorAll('.card img')
+
+card.forEach(element => {
+	element.addEventListener('mouseenter', ()=>{
+		gsap.to(element, {
+			scale:1.1,
+			transfromOrigin: "center center",
+			ease: 'power'
+		})
+
+		element.addEventListener('mouseleave', ()=>{
+		gsap.to(element, {
+			scale: 1,
+			ease: 'back'
+		})
+	})
+	})
+})
 
 </script>

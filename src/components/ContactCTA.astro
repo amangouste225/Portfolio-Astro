@@ -3,8 +3,8 @@ import CallToAction from './CallToAction.astro';
 import Icon from './Icon.astro';
 ---
 
-<footer class="flex justify-between items-center">
-<aside>
+<footer class="flex gap-10 md:gap-0 items-center flex-col md:flex-row justify-center md:justify-start">
+<aside class="flex flex-col gap-4 md:gap-2 md:justify-start text-center justify-center items-center md:items-start">
 	<h2 class="mb-1 footer-title">project in mind?</h2>
 	<p class="text-lg font-normal">you can contact me for freelance opportunities  - or just to chat!</p>
 	<CallToAction href="mailto:amangouakacouange@gmail.com">
@@ -17,19 +17,12 @@ import Icon from './Icon.astro';
 </footer>
 
 <style>
-	aside {
-		display: block;
-	}
-
 	footer{
-		box-shadow: var(--shadow-sm);
 		padding: 1.5rem;
 	}
 
 	h2 {
 		font-size: var(--text-xl);
-		text-align: center;
-		max-width: 15ch;
 	}
 
 	@media (min-width: 50em) {
@@ -42,7 +35,6 @@ import Icon from './Icon.astro';
 
 		h2 {
 			font-size: var(--text-3xl);
-			text-align: left;
 		}
 
 		.copyright{

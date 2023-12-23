@@ -69,9 +69,9 @@
 	--font-system: 'Satoshi', sans-serif;
 	--font-body: var(--font-system);
 	--font-brand: var(--font-system);
-
-	/* Transitions */
-	--theme-transition: 0.2s ease-in-out;
+	--font-variable: 'Satoshi-Variable', sans-serif
+		/* Transitions */
+		--theme-transition: 0.2s ease-in-out;
 
 	.invert {
 		filter: invert(1);
@@ -207,6 +207,22 @@
 	src: url('/fonts/Satoshi-Light.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Satoshi-Variable';
+	src: url('/fonts/Satoshi-Variable.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Satoshi-Variable';
+	src: url('/fonts/Satoshi-VariableItalic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
 	font-display: swap;
 }
 
@@ -397,9 +413,6 @@ h5 {
 /* HOME STYLING */
 div.char:nth-child(1) {
 	font-style: italic !important;
-}
-
-.flex {
-	display: flex;
-	align-items: center;
+	font-family: var(--font-variable);
+	font-style: italic;
 }

@@ -8,7 +8,7 @@ interface Props {
 
 const {name, tagline, title } = Astro.props;
 import { Image } from 'astro:assets';
-import wave from '../../public/assets/wave.svg'
+import wave from '../../public/assets/love.webp'
 import Freelance from './Freelance.astro';
 ---
 
@@ -91,6 +91,6 @@ char.forEach( char => {
 	})
 })
 
-gsap.timeline({defaults:{ ease : 'back', opacity: 0, duration: 0.4}}).from('#contain',{ease:'linear'}).from('.greetings', {y: 100 }).from('.headingName', { y:100}).from('.first', {y:100}).from('.second',{y:100})
+gsap.timeline({defaults:{ ease : 'back', opacity: 0, duration: 0.3, stagger:0.2}}).from('#contain',{ease:'linear'}).from('.greetings', {y: 100 }).from('.headingName', { y:100}).from('.first', {y:100}).from('.second',{y:100})
 </script>
 

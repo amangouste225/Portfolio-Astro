@@ -17,9 +17,9 @@ const projects = (await getCollection('work')).sort(
 	title="My Work | Amangoua Ange"
 	description="Learn about Amangoua Ange's most recent projects"
 >
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Header name='My recent project' para='See my most recent projects below to get an idea of my past experience'/>
+	<div class="stack gap-20" data-scroll-container>
+		<main class="wrapper stack gap-8" data-scroll-section>
+			<Header name='recents projects' para='See my most recent projects below to get an idea of my past experience' data-scroll data-scroll-speed="1"/>
 			<Grid variant="offset">
 				{
 					projects.map((project) => (

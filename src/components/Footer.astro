@@ -19,8 +19,8 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 ];
 ---
 
-<footer>
-		<ul class="nav-items">
+<footer class="hidden">
+		<ul class="nav-items md:block">
 			{
 				textLinks.map(({ label, href }) => (
 					<li>
@@ -43,7 +43,6 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			}
 		</ul>
 </footer>
-
 <style>
 	footer {
 		z-index: 9999;
